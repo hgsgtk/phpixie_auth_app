@@ -17,14 +17,18 @@ class Messages extends Processor
 	{
 		$components = $this->components();
 
-		// Get all the messages
-		$messages = $components->orm()->query('message')
-			->orderDescendingBy('date')
-			->find();
+		// create an ORM query for messages
+		$messageQuery = $components->orm()->query('message')
+			->orderDescendingBy('date');
 
-		// Render the template
-		return $components->template()->get('a<pp:messages', [
-			'messages' => $messages
+		$pager = $components->paginateOrm()
+			->queryPager($messageQuery, 10, ['user']);
+
+		$page = $request->attributes()->get('page', 1);
+		$pager->setCurrentPage($page);
+
+		return $components->template()->get('app:messages', [
+			'pager' => $pager
 		]);
 	}
 }
