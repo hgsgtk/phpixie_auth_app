@@ -5,6 +5,7 @@ namespace Project\App;
 class HTTP extends \PHPixie\DefaultBundle\HTTP
 {
     protected $classMap = array(
-        'greet' => 'Project\App\HTTP\Greet'
+        'greet' => 'Project\App\HTTP\Greet',
+		'messages' => 'Project\App\HTTP\Messages'
     );
 }
