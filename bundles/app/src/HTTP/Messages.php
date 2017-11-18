@@ -28,7 +28,8 @@ class Messages extends Processor
 		$pager->setCurrentPage($page);
 
 		return $components->template()->get('app:messages', [
-			'pager' => $pager
+			'pager' => $pager,
+			'user' => $this->user()
 		]);
 	}
 }
