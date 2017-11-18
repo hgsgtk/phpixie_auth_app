@@ -4,7 +4,11 @@ return array(
     'models' => array(
         /*modelGeneratorPlaceholder*/
     ),
-    'relationships' => array(
-        
-    )    
+    'relationships' => [
+    	[
+			'type' => 'oneToMany',
+			'owner' => 'user',
+			'items' => 'message'
+		]
+	]
 );

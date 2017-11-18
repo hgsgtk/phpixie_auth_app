@@ -17,6 +17,10 @@ return array(
 		'frontpage' => array(
 			'path' => '',
 			'defaults' => array('processor' => 'messages')
-		)
+		),
+		'messages' => [
+			'path' => 'page(/<page>)',
+			'defaults' => ['processor' => 'messages']
+		]
     )
 );

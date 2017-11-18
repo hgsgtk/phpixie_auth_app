@@ -8,12 +8,12 @@ $this->set('pageTitle', 'Messages');
 ?>
 
 <div class="container content">
-	<?php foreach($messages as $message): ?>
+	<?php foreach($pager->getCurrentItems() as $message): ?>
 
 		<blockquote class='blockquote'>
 			<p class="mb-0"><?=$_($message->text)?></p>
 			<footer class="blockquote-footer">
-				posted at <?=$this->formatDate($message->date, 'j M Y, H:i')?>
+				posted by <?=$_($message->user()->name) ?> /posted at <?=$this->formatDate($message->date, 'j M Y, H:i')?>
 			</footer>
 		</blockquote>
 
