@@ -9,12 +9,14 @@ class ORM extends \PHPixie\DefaultBundle\ORM
 {
     protected $entityMap = array(
         /*entityGeneratorPlaceholder*/
+        'user' => 'Project\App\ORM\User'
     );
 
     protected $repositoryMap = array(
         /*repositoryGeneratorPlaceholder*/
+        'user' => 'Project\App\ORM\User\UserRepository'
     );
-    
+
     protected $query = array(
         /*queryGeneratorPlaceholder*/
     );

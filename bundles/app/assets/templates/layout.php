@@ -21,6 +21,25 @@
 
 		<!-- Link to the frontpage -->
 		<a class="navbar-brand  mr-auto" href="<?=$this->httpPath('app.frontpage')?>">Quickstart</a>
+
+		<?php if($user): ?>
+			<span class="navbar-text mr-auto">
+				Hi, <b><?=$_($user->name)?></b>
+			</span>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<?php $url = $this->httpPath('app.action', ['processor' => 'auth', 'action' => 'logout']); ?>
+					<a class="nav-link" href="<?=$url?>">Sign Out</a>
+				</li>
+			</ul>
+		<?php else: ?>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<?php $url = $this->httpPath('app.processor', ['processor' => 'auth']);?>
+					<a class="nav-link" href="<?=$this->httpPath('app.processor', ['processor' => 'auth'])?>">Sign In</a>
+				</li>
+			</ul>
+		<?php endif; ?>
 	</div>
 </nav>
 
