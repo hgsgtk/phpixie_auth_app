@@ -11,7 +11,12 @@ return array(
 
         'processor' => array(
             'path'     => '(<processor>)',
-            'defaults' => array('processor' => 'greet')
-        )
+            'defaults' => array('processor' => 'messages')
+        ),
+
+		'frontpage' => array(
+			'path' => '',
+			'defaults' => array('processor' => 'messages')
+		)
     )
 );
